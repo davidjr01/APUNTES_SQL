@@ -1,0 +1,55 @@
+--SELECT 
+SELECT * FROM Paciente
+--INSERT 
+INSERT INTO Paciente values('david','juarez','1998-01-04','cubuclo',1,12245,'asdf','asdf')
+
+SELECT * FROM Paciente WHERE apellido='juarez'
+
+--DELETE 
+DELETE FROM Paciente WHERE	idPaciente=8
+
+--UPDATE
+UPDATE Paciente SET nombre='LUIS' WHERE idPaciente='9'
+
+UPDATE Paciente SET apellido='REYES' WHERE idPaciente='10'
+ ---Top
+ SELECT TOP 1 * FROM Paciente WHERE apellido='REYES'
+ --ORDER BY
+SELECT  * FROM Paciente ORDER BY nombre DESC
+ --DISTANCY
+SELECT DISTINCT apellido FROM Paciente
+
+--GOURP BY
+SELECT apellido FROM Paciente GROUP BY apellido
+
+--max
+SELECT MAX (idPaciente) FROM Paciente
+SELECT apellido,MAX(idPaciente) FROM Paciente GROUP BY apellido 
+--MIN
+SELECT MIN (idPaciente) FROM Paciente
+SELECT apellido,MIN(idPaciente) FROM Paciente GROUP BY apellido 
+
+--SUM 
+SELECT SUM (idPaciente) FROM Paciente
+SELECT apellido, SUM (idPaciente) FROM Paciente GROUP BY apellido 
+
+--- AVG (promedio)
+SELECT AVG(idPaciente) from Paciente
+
+--- count
+SELECT COUNT (idPaciente) FROM Paciente
+SELECT COUNT (idPaciente) FROM Paciente WHERE apellido='REYES'
+
+---HAVIN  es como el where pero ahi pude devolver agrupado o ya sea cantidad , estados que tenga 2 items
+SELECT estado FROM	turno GROUP BY estado HAVING COUNT(estado)=2
+
+--AND
+--OR
+-- IN
+SELECT * FROM Paciente WHERE apellido IN('REYES','juarez') 
+--like
+SELECT * FROM Paciente WHERE nombre LIKE ('dav%')
+--not
+SELECT * FROM Paciente WHERE nombre NOT LIKE ('dav%')
+--between
+SELECT * FROM Paciente WHERE fNacimiento BETWEEN '19980104' AND '19980106'
